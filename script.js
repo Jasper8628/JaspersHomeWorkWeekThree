@@ -11,17 +11,25 @@ while(input==null|| isNaN(input)|| userInput<8||userInput>128){
 var includeCapitalLetters=confirm("Would your like your password to contain capital letters?");
 var includeNumbers=confirm("Would you like your password to contain numbers?");
 var includeSymbols=confirm("Would you like your password to contain special symbols?");
+
+
+
 var defaultCharacterPool=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var capitalLetterPool=[];
 var numbersPool=["0","1","2","3","4","5","6","7","8","9"]
 var symbolPool=[",",".","/","<",">","?",";","'",":","~","!","@","#","$","%","^","&","*","(",")","_","+","-","="];
 var newPassword=[];
 var charPool=[];
+var generate=document.getElementById("generate");
+var copy=document.querySelector("#copy");
+var displayPassword=document.querySelector("#password");
 for(i=0;i<26;i++){
   var getLetter=defaultCharacterPool[i].toUpperCase();
   capitalLetterPool.push(getLetter);
 }
 //console.log(capitalLetterPool);
+
+
 
 for(i=0;i<userInput;i++){
   if(includeCapitalLetters){
@@ -69,6 +77,7 @@ for(i=0;i<userInput;i++){
 }
 var finalPassword= newPassword.join("");
 console.log(finalPassword);
-alert("Here's your new password: "+finalPassword);
+//alert("Here's your new password: "+finalPassword);
+displayPassword.value=finalPassword;
 
 

@@ -12,22 +12,15 @@
 <body>
   <div class="todos">
 
-    <button id="play">play</button>
-    <button id="pause">pause</button>
-    <button id="reset">reset</button>
-    <form id="work" method="POST">
-      <label for="work-time">work time</label>
-      <input type="text" placeholder="set time for work:" name="work-time" id="work-time" />
-    </form>
-
-    <form id="break" method="POST">
-      <label for="break-time">break time:</label>
-      <input type="text" placeholder="set time for break:" name="break-time" id="break-time" />
+    <form>
+      <label>Generated Password:</label>
+      <input type="text" placeholder="Password to be Generated:" id="password" />
     </form>
 
 
-    <p id="display-timer">countdown: <span id="count-down">0</span></p>
-    
+    <button id="generate">Generate </button>
+    <button id="copy">Copy to clipboard</button>
+
   </div>
   <script src="./script.js"></script>
 </body>
