@@ -5,21 +5,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="./style.css" />
   <title>Password Generator</title>
 </head>
 
-<body>
-  <div class="todos">
+<body class="todos">
+  <header>
+    <h1>Password Generator</h1>
+  </header>
+  <div class="todos container">
+    
 
     <form>
-      <label>Generated Password:</label>
-      <input type="text" placeholder="Password to be Generated:" id="password" />
+      <div class="form-group">
+        <label>Generated Password:</label>
+        <input class=" text-center form-control form-control-xl" type="text" placeholder="Password to be Generated:" id="password" />
+      </div>
     </form>
+    
 
 
-    <button id="generate-password">Generate </button>
-    <button id="copy-click-board">Copy to clipboard</button>
+    <button type="button" class="btn btn-danger" id="generate-password">Generate </button>
+    <button type="button" class="btn btn-secondary" id="copy-click-board">Copy to clipboard</button>
 
   </div>
   <script src="./script.js"></script>
