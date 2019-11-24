@@ -1,6 +1,7 @@
 var generatePassword = document.querySelector("#generate-password");
 var copyToClipboard = document.querySelector("#copy-click-board");
 var displayPassword = document.querySelector("#password");
+
 generatePassword.addEventListener("click", function (event) {
   event.preventDefault();
 
@@ -18,58 +19,27 @@ generatePassword.addEventListener("click", function (event) {
   var defaultCharacterPool = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   var capitalLetterPool = [];
   var numbersPool = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-  var symbolPool = [ "/", "<", ">", "?", ";", ":", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "-", "="];
+  var symbolPool = ["/", "<", ">", "?", ";", ":", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "-", "="];
   var newPassword = [];
-  var charPool = [];
-
+  var charPool = defaultCharacterPool;
   for (i = 0; i < 26; i++) {
     var getLetter = defaultCharacterPool[i].toUpperCase();
     capitalLetterPool.push(getLetter);
   }
 
-  for (i = 0; i < userInput; i++) {
-    if (includeCapitalLetters) {
-      if (includeNumbers) {
-        if (includeSymbols) {
-          charPool = defaultCharacterPool.concat(capitalLetterPool);
-          charPool = charPool.concat(numbersPool);
-          charPool = charPool.concat(symbolPool);
-          //console.log(charPool);
-        }
-        else {
-          charPool = defaultCharacterPool.concat(capitalLetterPool);
-          charPool = charPool.concat(numbersPool);
-        }
-      }
-      else if (includeSymbols) {
-        charPool = defaultCharacterPool.concat(capitalLetterPool);
-        charPool = charPool.concat(symbolPool);
-      }
-      else {
-        charPool = defaultCharacterPool.concat(capitalLetterPool);
-      }
+  var booleanpool = [includeCapitalLetters, includeNumbers, includeSymbols];
+  var arrayOfPools = [capitalLetterPool, numbersPool, symbolPool];
+  for (i = 0; i < arrayOfPools.length; i++) {
+    if (booleanpool[i]) {
+      charPool = charPool.concat(arrayOfPools[i]);
     }
-    else if (includeNumbers) {
-      if (includeSymbols) {
-        charPool = defaultCharacterPool.concat(numbersPool);
-        charPool = charPool.concat(symbolPool);
-      }
-      else {
-        charPool = defaultCharacterPool.concat(numbersPool);
-      }
-    }
-    else if (includeSymbols) {
-      charPool = defaultCharacterPool.concat(symbolPool);
-    }
-    else {
-      charPool = defaultCharacterPool;
-    }
+  }
 
+  for (i = 0; i < userInput; i++) {
     var charIndex = Math.floor((Math.random() * charPool.length));
     var newChar = charPool[charIndex];
     newPassword.push(newChar);
     //console.log(newChar);
-
   }
   var finalPassword = newPassword.join("");
   //console.log(finalPassword);
